@@ -1,0 +1,999 @@
+<html>
+	<head>
+
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+	
+	
+	<style type="text/css">
+		body {
+			font-family: 'Noto Sans', sans-serif;
+			color: #4a4a4a;
+			font-size: 1em;
+			font-weight: 400;
+			line-height: 1.5;
+			margin-left: auto;
+			margin-right: auto;
+			width: 1100px;
+		}
+	
+		.title {
+			color: #363636;
+			font-size: 4rem;
+			line-height: 1.125;
+			font-weight: 200;
+			font-family: 'Google Sans', sans-serif;
+		}
+	
+		.publication-title {
+			font-family: 'Google Sans', sans-serif;
+		}
+	
+		h1 {
+			font-size: 40px;
+			font-weight: 500;
+		}
+	
+		h2 {
+			font-size: 35px;
+			font-weight: 300;
+		}
+	
+		h3 {
+			font-size: 1px;
+			font-weight: 300;
+		}
+	
+		.subtitle,
+		.title {
+			word-break: break-word;
+		}
+	
+		.title.is-2 {
+			font-size: 4rem;
+			font-weight: 400;
+		}
+	
+		.title.is-3 {
+			font-size: 2.5rem;
+			font-weight: 400;
+		}
+	
+		.content h2 {
+			font-weight: 600;
+			font-family: 'Noto Sans', sans-serif;
+			line-height: 1.125;
+		}
+	
+		.disclaimerbox {
+			background-color: #eee;
+			border: 1px solid #eeeeee;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			padding: 20px;
+		}
+	
+		video.header-vid {
+			height: 140px;
+			border: 1px solid rgba(0, 0, 0, 0.212);
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+	
+		img.header-img {
+			height: 140px;
+			border: 1px solid black;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+	
+		img.rounded {
+			border: 1px solid #eeeeee;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+	
+		a:link,
+		a:visited {
+			color: #2994c5;
+			text-decoration: none;
+		}
+	
+		a:hover {
+			color: #0e889e;
+		}
+	
+		td.dl-link {
+			height: 160px;
+			text-align: center;
+			font-size: 22px;
+		}
+	
+		.layered-paper-big {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The top layer shadow */
+				5px 5px 0 0px #fff,
+				/* The second layer */
+				5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The second layer shadow */
+				10px 10px 0 0px #fff,
+				/* The third layer */
+				10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The third layer shadow */
+				15px 15px 0 0px #fff,
+				/* The fourth layer */
+				15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The fourth layer shadow */
+				20px 20px 0 0px #fff,
+				/* The fifth layer */
+				20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The fifth layer shadow */
+				25px 25px 0 0px #fff,
+				/* The fifth layer */
+				25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The fifth layer shadow */
+			margin-left: 10px;
+			margin-right: 45px;
+		}
+	
+		.paper-big {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The top layer shadow */
+	
+			margin-left: 10px;
+			margin-right: 45px;
+		}
+	
+		.button.is-dark {
+			background-color: #363636;
+			border-color: transparent;
+			color: #fff;
+		}
+	
+		.button.is-rounded {
+			border-radius: 290486px;
+			padding-left: calc(1em + .25em);
+			padding-right: calc(1em + .25em);
+		}
+	
+		.button.is-normal {
+			font-size: 1rem;
+		}
+	
+		.button .icon,
+		.button .icon.is-large,
+		.button .icon.is-medium,
+		.button .icon.is-small {
+			height: 1.5em;
+			width: 1.5em;
+		}
+	
+		.icon {
+			align-items: center;
+			display: inline-flex;
+			justify-content: center;
+			height: 1.5rem;
+			width: 1.5rem;
+		}
+	
+		.button.is-normal {
+			font-size: 1rem;
+		}
+	
+		.button {
+			background-color: #fff;
+			border-color: #dbdbdb;
+			border-width: 1px;
+			color: #363636;
+			cursor: pointer;
+			justify-content: center;
+			padding-bottom: calc(.5em - 1px);
+			padding-left: 1em;
+			padding-right: 1em;
+			padding-top: calc(.5em - 1px);
+			text-align: center;
+			white-space: nowrap;
+		}
+	
+		.button .icon:first-child:not(:last-child) {
+			margin-left: calc(-.5em - 1px);
+			margin-right: .25em;
+		}
+		
+		.button.is-rounded {
+			border-radius: 290486px;
+			padding-left: calc(1em + .25em);
+			padding-right: calc(1em + .25em);
+		}
+	
+		.button.is-normal {
+			font-size: 1rem;
+		}
+	
+		.button.is-dark {
+			background-color: #363636;
+			border-color: transparent;
+			color: #fff;
+		}
+	
+		.link-block a {
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+	
+		.button {
+			background-color: #fff;
+			border-color: #dbdbdb;
+			border-width: 1px;
+			color: #363636;
+			cursor: pointer;
+			justify-content: center;
+			padding-bottom: calc(.5em - 1px);
+			padding-left: 1em;
+			padding-right: 1em;
+			padding-top: calc(.5em - 1px);
+			text-align: center;
+			white-space: nowrap;
+		}
+	
+		.button,
+		.file-cta,
+		.file-name,
+		.input,
+		.pagination-ellipsis,
+		.pagination-link,
+		.pagination-next,
+		.pagination-previous,
+		.select select,
+		.textarea {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			align-items: center;
+			border: 1px solid transparent;
+			border-top-color: transparent;
+			border-top-width: 1px;
+			border-right-color: transparent;
+			border-right-width: 1px;
+			border-bottom-color: transparent;
+			border-bottom-width: 1px;
+			border-left-color: transparent;
+			border-left-width: 1px;
+			border-radius: 4px;
+			box-shadow: none;
+			display: inline-flex;
+			font-size: 1rem;
+			height: 2.5em;
+			justify-content: flex-start;
+			line-height: 1.5;
+			padding-bottom: calc(.5em - 1px);
+			padding-left: calc(.75em - 1px);
+			padding-right: calc(.75em - 1px);
+			padding-top: calc(.5em - 1px);
+			position: relative;
+			vertical-align: top;
+		}
+	
+		.breadcrumb,
+		.button,
+		.delete,
+		.file,
+		.is-unselectable,
+		.modal-close,
+		.pagination-ellipsis,
+		.pagination-link,
+		.pagination-next,
+		.pagination-previous,
+		.tabs {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	
+		a {
+			color: #3273dc;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	
+		a {
+			color: #007bff;
+			text-decoration: none;
+			background-color: transparent;
+		}
+	
+		*,
+		::after,
+		::before {
+			box-sizing: inherit;
+		}
+	
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+	
+		span {
+			font-style: inherit;
+			font-weight: inherit;
+		}
+
+		span.disabled {
+			pointer-events: none;
+		}
+	
+		.layered-paper {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The top layer shadow */
+				5px 5px 0 0px #fff,
+				/* The second layer */
+				5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The second layer shadow */
+				10px 10px 0 0px #fff,
+				/* The third layer */
+				10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The third layer shadow */
+			margin-top: 5px;
+			margin-left: 10px;
+			margin-right: 30px;
+			margin-bottom: 5px;
+		}
+	
+		.vert-cent {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	
+		hr {
+			border: 0;
+			height: 1px;
+			background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+		}
+	</style>
+	
+	<title>Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail</title>
+	<meta property="og:image" content="./assets/teaser.png" />
+	<!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail" />
+	<meta property="og:url" content="https://stereoanywhere.github.io/">
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+  		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<!-- <script type="text/javascript" id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+	</script> -->
+
+</head>
+
+<body>
+	<br>
+	<center>
+		<h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail</strong></h1>
+		<br>
+		<h3 class="title is-3 publication-title" style="margin-top: 0; margin-bottom: 0">ArXiv</h3>
+		<br>
+		<table align=center width="1100px">
+			<table align=center width="1000px">
+				<tr>
+					<td align=center width="180px">
+						<center>
+							<span style="font-size:25px"><a href="https://bartn8.github.io/">Luca
+									Bartolomei</a></span>
+						</center>
+					</td>
+                    <td align=center width="150px">
+						<center>
+							<span style="font-size:25px"><a href="https://fabiotosi92.github.io/">Fabio
+									Tosi</a></span>
+						</center>
+					</td>                    
+					<td align=center width="150px">
+						<center>
+							<span style="font-size:25px"><a href="https://mattpoggi.github.io/">Matteo
+									Poggi</a></span>
+						</center>
+					</td>
+					<td align=center width="180px">
+						<center>
+							<span style="font-size:25px"><a
+									href="http://vision.deis.unibo.it/~smatt/Site/Home.html">Stefano
+									Mattoccia</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table align=center width="750px">
+				<table align=center width="750px">
+					<tr>
+						<td align=center width="200px">
+							<center>
+								<span style="font-size:22px">University of Bologna</span>
+							</center>
+						</td>
+					</tr>
+				</table>
+
+				<!-- PDF Link. -->
+				<span class="link-block">
+					<a href="https://arxiv.org/" class="external-link button is-normal is-rounded is-dark"
+						style="background-color:#000000;">
+						<span class="icon">
+							<svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
+								data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 384 512" data-fa-i2svg="">
+								<path fill="currentColor"
+									d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+								</path>
+							</svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+						</span>
+						<span>Paper</span>
+					</a>
+				</span>
+
+				<!-- Poster Link. -->
+				<span class="link-block disabled">
+					<a href="assets/poster.pdf" class="external-link button is-normal is-rounded is-dark"
+						style="background-color:#777777;">
+						<span class="icon">
+							<svg class="svg-inline--fa fa-palette fa-w-16" aria-hidden="true" focusable="false"
+								data-prefix="fas" data-icon="palette" role="img" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 512 512" data-fa-i2svg="">
+								<path fill="currentColor"
+									d="M204.3 5C104.9 24.4 24.8 104.3 5.2 203.4c-37 187 131.7 326.4 258.8 306.7 41.2-6.4 61.4-54.6 42.5-91.7-23.1-45.4 9.9-98.4 60.9-98.4h79.7c35.8 0 64.8-29.6 64.9-65.3C511.5 97.1 368.1-26.9 204.3 5zM96 320c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm32-128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128-64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z">
+								</path>
+							</svg><!-- <i class="fas fa-palette"></i> Font Awesome fontawesome.com -->
+						</span>
+						<span>Poster</span>
+					</a>
+				</span>
+				<!-- Code Link. -->
+				<span class="link-block">
+					<a href="https://github.com/bartn8/stereoanywhere/" class="external-link button is-normal is-rounded is-dark"
+						style="background-color:#000000;">
+						<span class="icon">
+							<svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false"
+								data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 496 512" data-fa-i2svg="">
+								<path fill="currentColor"
+									d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+								</path>
+							</svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+						</span>
+						<span>Code</span>
+					</a>
+				</span>
+			</table>
+	</center>
+	<br>
+	<center>
+		<table align=center width="1000px">
+			<tr>
+				<td>
+					<center>
+						<img class="round" width="1000px" src="./assets/teaser.png" />
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+			<tr>
+				<td>
+					<p style="text-align: justify;">
+						<strong>Stereo Anywhere: Combining Monocular and Stereo Strenghts for Robust Depth Estimation.</strong> Our model achieves accurate results on standard conditions (on Middlebury), while effectively handling non-Lambertian surfaces where stereo networks fail (on Booster) and perspective illusions that deceive monocular depth foundation models (on MonoTrap, our novel dataset).
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<br>
+	<br>
+	<hr>
+
+	<center>
+		<h1>Abstract</h1>
+	</center>
+
+	<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+		<tr>
+			<td>
+				<p style="text-align: justify;">
+					<i>"We introduce Stereo Anywhere, a novel stereo-matching framework that combines geometric constraints with robust priors from monocular depth Vision Foundation Models (VFMs). By elegantly coupling these complementary worlds through a dual-branch architecture, we seamlessly integrate stereo matching with learned contextual cues. Following this design, our framework introduces novel cost volume fusion mechanisms that effectively handle critical challenges such as textureless regions, occlusions, and non-Lambertian surfaces. Through our novel optical illusion dataset, MonoTrap, and extensive evaluation across multiple benchmarks, we demonstrate that our synthetic-only trained model achieves state-of-the-art results in zero-shot generalization, significantly outperforming existing solutions while showing remarkable robustness to challenging cases such as mirrors and transparencies."</i>
+				</p>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<hr>
+
+	<center>
+		<h1>Method</h1>
+	</center>
+
+	<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+		<tr>
+			<td>
+				<h2> 1 - Problems</h2>
+				<p style="text-align: justify;">
+					Stereo is a fundamental task that computes depth from a synchronized, rectified image pair by finding pixel correspondences to measure their horizontal offset (disparity).
+					Due to its effectiveness and minimal hardware requirements, stereo has become prevalent in numerous applications.
+					However, despite significant advances through deep learning, stereo models still face two main challenges:
+				</p>
+				<ol>
+					<li>
+						<p style="text-align: justify;">
+							<strong>limited generalization across different scenarios:</strong> despite the initial success of synthetic datasets in enabling deep learning for stereo, their limited variety and simplified nature poorly reflect real-world complexity, and the scarcity of real training data further hinders the ability to handle heterogeneous scenarios;
+						</p>
+					</li>
+					<li>
+						<p style="text-align: justify;">
+							<strong>critical conditions that hinder matching or proper depth triangulation:</strong> large textureless regions common in indoor environments make pixel matching highly ambiguous, while occlusions and non-Lambertian surfaces violate the fundamental assumptions linking pixel correspondences to 3D geometry.
+						</p>
+					</li>
+				</ol>
+				<p style="text-align: justify;">
+					We argue that both challenges are rooted in the underlying limitations of stereo training data. Indeed, while data has scaled up to millions for several computer vision tasks, stereo datasets are still constrained in quantity and variety. 
+					This is particularly evident for non-Lambertian surfaces, which are severely underrepresented in existing datasets as their material properties prevent reliable depth measurements from active sensors (e.g. LiDAR).
+				</p>
+				<p style="text-align: justify;">
+					In contrast, single-image depth estimation has recently witnessed a significant scale-up in data availability, reaching the order of millions of samples and enabling the emergence of Vision Foundation Models (VFMs). 
+					Since these models rely on contextual cues for depth estimation, they show better capability in handling textureless regions and non-Lambertian materials while being inherently immune to occlusions.
+					Unfortunately, monocular depth estimation has its own limitations:
+				</p>
+				<ol start="3">
+					<li>
+						<p style="text-align: justify;">
+							its ill-posed nature leads to <strong>scale ambiguity and perspective illusion issues</strong> that stereo methods inherently overcome through well-established geometric multi-view constraints.
+						</p>					
+					</li>
+				</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2> 2 - Proposal</h2>
+
+				<p style="text-align: justify;">
+					To address these challenges, we propose a novel stereo matching framework that combines the strengths of stereo and monocular depth estimation. 
+					Our model, Stereo Anywhere, leverages geometric constraints from stereo matching with robust priors from monocular depth Vision Foundation Models (VFMs). 
+					By elegantly coupling these complementary worlds through a dual-branch architecture, we seamlessly integrate stereo matching with learned contextual cues. 
+					In particular, following this desing, we can handle the aforementioned problems as follows:
+				</p>
+				
+				<ol>
+					<li>
+						<p style="text-align: justify;">
+							<strong>Zero-Shot Generalization:</strong> we show that by training on synthetic data only, our model achieves state-of-the-art results in zero-shot generalization, significantly outperforming existing solutions. 
+						</p>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td><img src="assets/qualitative1.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+							</tr>
+						</table>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td>
+									<p style="text-align: justify;">
+										<strong>Qualitative Results -- Zero-Shot Generalization.</strong> Predictions by state-of-the-art models and Stereo Anywhere.
+									</p>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li>
+						<p style="text-align: justify;">
+							<strong>Robustness against critical conditions:</strong> we demonstrate that our model shows remarkable robustness to challenging cases such as mirrors and transparencies, as it leverages learned contextual cues from monocular depth Vision Foundation Models (VFMs).
+						</p>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td><img src="assets/qualitative2.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+							</tr>
+						</table>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td>
+									<p style="text-align: justify;">
+										<strong>Qualitative results -- Zero-Shot non-Lambertian Generalization.</strong> Predictions by state-of-the-art models and Stereo Anywhere.
+									</p>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li>
+						<p style="text-align: justify;">
+							<strong>Robustness against monocular issues:</strong> we show that our model is immune to scale ambiguity and perspective illusion issues that plague monocular depth estimation, as it leverages well-established geometric multi-view constraints. 
+							We demonstrate this through our novel optical illusion dataset, MonoTrap.
+						</p>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td><img src="assets/qualitative3.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 700px;" /></td>
+							</tr>
+						</table>
+						<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+							<tr>
+								<td>
+									<p style="text-align: justify;">
+										<strong>Qualitative results -- MonoTrap.</strong> Stereo Anywhere is not fooled by erroneous predictions by its monocular engine.
+									</p>
+								</td>
+							</tr>
+						</table>	
+					</li>					
+				</ol>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2> 3 - Stereo Anywhere</h2>
+
+				<p style="text-align: justify;">
+					Given a rectified stereo pair $\mathbf{I}_L, \mathbf{I}_R \in \mathbb{R}^{3 \times H \times W}$, we first obtain monocular depth estimates (MDEs) $\mathbf{M}_L, \mathbf{M}_R \in \mathbb{R}^{1 \times H \times W}$ using a generic VFM $\phi_M$ for monocular depth estimation. We aim to estimate a disparity map $\mathbf{D}=\phi_S(\mathbf{I}_L, \mathbf{I}_R, \mathbf{M}_L, \mathbf{M}_R)$, incorporating VFM priors to provide accurate results even under challenging conditions, such as texture-less areas, occlusions, and non-Lambertian surfaces. 
+					At the same time, our stereo network $\phi_S$ is designed to avoid depth estimation errors that could arise from relying solely on contextual cues, which can be ambiguous, like in the presence of visual illusions.
+					Following recent advances in iterative models, Stereo Anywhere comprises three main stages, as shown in the following figure: I) Feature Extraction, II) Correlation Pyramids Building, and III) Iterative Disparity Estimation.
+
+				</p>
+
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/framework.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Stereo Anywhere Architecture.</strong> Given a stereo pair, <b style="color: red;">(1)</b> a pre-trained backbone is used to extract features and then build a correlation volume.
+								Such a volume is then truncated <b style="color: red;">(2)</b> to reject matching costs computed for disparity hypotheses being behind non-Lambertian surfaces -- glasses and mirrors.
+								On a parallel branch, the two images are processed by a monocular VFM to obtain two depth maps <b style="color: red;">(3)</b>: these are used to build a second correlation volume from retrieved normals <b style="color: red;">(4)</b>.
+								This volume is then aggregated through a 3D CNN to predict a new disparity map, used to align the original monocular depth to metric scale through a differentiable scaling module <b style="color: red;">(5)</b> for it.
+								In parallel, the monocular depth map from left images is processed by another backbone <b style="color: red;">(6)</b> to extract context features.
+								Finally, the two volumes and the context features from monocular depth guide the iterative disparity prediction <b style="color: red;">(7)</b>.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<ol type="I">
+					<li>
+						<p style="text-align: justify;">
+							<strong>Feature Extraction.</strong> We extract <strong>image features</strong> from a frozen, pre-trained encoder applied to the stereo pair, producing feature maps $\mathbf{F}_L, \mathbf{F}_R \in \mathbb{R}^{D \times \frac{H}{4} \times \frac{W}{4}}$ for building a stereo correlation volume at quarter resolution.
+							 <strong>Context features</strong> are extracted from a similar encoder trained on monocular depth maps, leveraging strong geometry priors.
+						</p>
+					</li>
+					<li>
+						<p style="text-align: justify;">
+							<strong>Correlation Pyramids Building.</strong> The cost volume is the data structure econding the similarity between pixels across the two images. Our model employs <strong>correlation pyramids</strong> -- yet in a different manner.
+							Indeed, Stereo Anywhere builds two cost volumes: a <strong>stereo correlation volume</strong> starting from $\mathbf{I}_L, \mathbf{I}_R$ for image similarities and a <strong>monocular correlation volume</strong> from $\mathbf{M}_L, \mathbf{M}_R$ to encode geometric similarities -- <b style="color: red;">(2)</b> and <b style="color: red;">(4)</b>. 
+							Unlike the former, the latter is robust to non-Lambertian surfaces, assuming a reliable $\phi_M$.
+						</p>
+						<ol type="a">
+							<li>
+								<p style="text-align: justify;">
+									<strong>Stereo Correlation Volume.</strong> Given $\mathbf{F}_L, \mathbf{F}_R$, we construct a 3D correlation volume $\mathbf{V}_S$ using dot product between feature maps:
+									$$(\mathbf{V}_S)_{ijk} = \sum_{h} (\mathbf{F}_L)_{hij} \cdot (\mathbf{F}_R)_{hik}, \ \mathbf{V}_S \in \mathbb{R}^{\frac{H}{4} \times \frac{W}{4} \times \frac{W}{4}}$$
+								</p>
+							</li>
+							<li>
+								<p style="text-align: justify;">
+									<strong>Mononocular Correlation Volume.</strong> Given $\mathbf{M}_L, \mathbf{M}_R$, we downsample them to 1/4, compute their normals $\nabla_L, \nabla_R$,	and construct a 3D correlation volume $\mathbf{V}_M$ using dot product between normal maps:
+									$$(\mathbf{V}_M)_{ijk} = \sum_{h} (\nabla_L)_{hij} \cdot (\nabla_R)_{hik}, \ \mathbf{V}_M \in \mathbb{R}^{\frac{H}{4} \times \frac{W}{4} \times \frac{W}{4}}$$
+									Next, we insert a 3D Convolutional Regularization module $\phi_A$ to aggregate ${\mathbf{V}_M}$.
+									We propose an adapted version of CoEx correlation volume excitation that exploits both views. 
+									The resulting feature volumes ${\mathbf{V}'}_M \in \mathbb{R}^{F \times \frac{H}{4} \times \frac{W}{4} \times \frac{W}{4}}$ are fed to two different shallow 3D conv layers $\phi_D$ and $\phi_C$ to obtain two aggregated volumes $\mathbf{V}^D_M = \phi_D({\mathbf{V}'}_M)$ and $\mathbf{V}^C_M = \phi_C({\mathbf{V}'}_M)$ with $\mathbf{V}^D_M,\mathbf{V}^C_M \in \mathbb{R}^{\frac{H}{4} \times \frac{W}{4} \times \frac{W}{4}}$.
+								</p>
+							</li>
+							<li>
+								<p style="text-align: justify;">
+									<strong>Differentiable Monocular Scaling.</strong> Volume $\mathbf{V}^D_M$ will be used not only as a monocular guide for the iterative refinement unit but also to estimate the coarse disparity maps $\hat{\mathbf{D}}_L$ $\hat{\mathbf{D}}_R$, while $\mathbf{V}^C_M$ is used to estimate confidence maps $\hat{\mathbf{C}}_L$ $\hat{\mathbf{C}}_R$: those maps are used to scale both $\mathbf{M}_L$ and $\mathbf{M}_R$ -- <b style="color: red;">(5)</b>. 
+								</p>
+								<p style="text-align: justify;">
+									To estimate disparities we can use a softargmax operator and the relationship between disparity and correlation: 
+									$$(\hat{\mathbf{D}}_L)_{ij} = j - \sum_{d}^{\frac{W}{4}} d \cdot \frac{e^{(\mathbf{V}^D_M)_{ijd}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^D_M)_{ijf}}} \quad (\hat{\mathbf{D}}_R)_{ik} = \sum_{d}^{\frac{W}{4}} d \cdot \frac{e^{(\mathbf{V}^D_M)_{idk}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^D_M)_{ifk}}} - k$$
+								</p>
+								<p style="text-align: justify;">
+									We also aim to estimate a pair of confidence maps $\hat{\mathbf{C}}_L, \hat{\mathbf{C}}_R \in [0,1]^{H \times W}$ to classify outliers and perform a robust scaling.
+									Inspired by information entropy, we estimate the <i>chaos</i> inside correlation curves: clear monomodal-like cost curve -- the ones with low entropy -- are reliable -- while <i>chaotic</i> curves -- the ones with high entropy -- are uncertain.
+									$$(\hat{\mathbf{C}}_L)_{ij} = 1  + \frac{\sum_{d}^{\frac{W}{4}} \frac{e^{(\mathbf{V}^C_M)_{ijd}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^C_M)_{ijf}}} \cdot \log_2 \left( \frac{e^{(\mathbf{V}^C_M)_{ijd}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^C_M)_{ijf}}} \right)}{\log_2(\frac{W}{4})} \quad (\hat{\mathbf{C}}_R)_{ik} = 1 + \frac{\sum_{d}^{\frac{W}{4}} \frac{e^{(\mathbf{V}^C_M)_{idk}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^C_M)_{ifk}}} \cdot \log_2 \left( \frac{e^{(\mathbf{V}^C_M)_{idk}}}{\sum_{f}^{\frac{W}{4}} e^{(\mathbf{V}^C_M)_{ifk}}} \right)}{\log_2(\frac{W}{4})}$$
+								</p>
+								<p style="text-align: justify;">
+									To further reduce outliers, we mask out from $\hat{\mathbf{C}}_L$ and $\hat{\mathbf{C}}_R$ occluded pixels using a <i>SoftLRC</i> operator:
+									$$\text{softLRC}_L(\mathbf{D},\mathbf{D}_R) = \frac{\log\left(1+\exp\left(T_\text{LRC}-\left| \mathbf{D}_L - \mathcal{W}_L(\mathbf{D}_L,\mathbf{D}_R) \right|\right)\right)}{\log(1+\exp(T_\text{LRC}))}$$
+									where $T_\text{LRC}=1$ is the LRC threshold and $\mathcal{W}_L(\mathbf{D}_L,\mathbf{D}_R)$ is the warping operator that uses the left disparity $\mathbf{D}_L$ to warp the right disparity $\mathbf{D}_R$ into the left view. 
+								</p>
+								<p style="text-align: justify;">
+									Finally, we can estimate the scale $\hat{s}$ and shift $\hat{t}$ using a differentiable weighted least-square approach:
+									$$\min_{\hat{s}, \hat{t}} \left\lVert \sqrt{\hat{\mathbf{C}}_L}\odot\left[\left(\hat{s}\mathbf{M}_L + \hat{t}\right)  - \hat{\mathbf{D}}_L \right] \right\rVert_F + \left\lVert \sqrt{\hat{\mathbf{C}}_R}\odot\left[\left(\hat{s}\mathbf{M}_R + \hat{t}\right)  - \hat{\mathbf{D}}_R \right] \right\rVert_F$$
+									where $\lVert\cdot\rVert_F$ denotes the Frobenius norm and $\odot$ denotes the element-wise product.
+								</p>
+								<p style="text-align: justify;">
+									Using the scaling coefficients, we obtain two disparity maps $\hat{\mathbf{M}}_L$, $\hat{\mathbf{M}}_R$:
+									$$\hat{\mathbf{M}}_L = \hat{s}\mathbf{M}_L + \hat{t},\ \hat{\mathbf{M}}_R = \hat{s}\mathbf{M}_R + \hat{t}$$
+									It is crucial to optimize both left and right scaling jointly to obtain consistency between $\hat{\mathbf{M}}_L$ and $\hat{\mathbf{M}}_R$.
+								</p>
+							</li>
+							<li>
+								<p style="text-align: justify;">
+									<strong>Volume Augmentations.</strong> Volume augmentations are necessary when the training set -- e.g., Sceneflow -- does not model particularly complex scenarios where a VFM could be useful, for example, when experiencing non-Lambertian surfaces.
+									Without any augmentation of this kind, the stereo network would simply overlook the additional information from the monocular branch.
+									Hence, we propose three volume augmentations and a monocular augmentation to overcome this issue:
+								</p>
+								<ul>
+									<li>
+										<p style="text-align: justify;">
+											<strong>Volume Rolling:</strong> non-Lambertian surfaces such as mirrors and glasses violate the geometry constraints, leading to a high matching peak in a wrong disparity bin.
+											This augmentation emulates this behavior by shifting some among the matching peaks to a random position: consequentially, Stereo Anywhere learns to retrieve the correct peak from the other branch.
+										</p>
+									</li>
+									<li>
+										<p style="text-align: justify;">
+											<strong>Volume Noising and Volume Zeroing:</strong>  we introduce noise and false peaks into the correlation volume to simulate scenarios with texture-less regions, repeating patterns, and occlusions.
+										</p>
+									</li>
+									<li>
+										<p style="text-align: justify;">
+											<strong>Perfect Monocular Estimation:</strong> instead of acting inside the correlation volumes, we can substitute the prediction of the VFM with a perfect monocular map  -- the ground truth normalized between $[0,1]$. This perfect prediction is noise-free and therefore the monocular branch of Stereo Anywhere will likely gain importance during the training process.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p style="text-align: justify;">
+									<strong>Volume Truncation.</strong> To further help Stereo Anywhere to handle mirror surfaces, we introduce a hand-crafted volume truncation operation on ${\mathbf{V}}_S$.
+									 Firstly, we extract left confidence $\mathbf{C}_M=\text{softLRC}_L(\hat{\mathbf{M}}_L, \hat{\mathbf{M}}_R)$ to classify reliable monocular predictions.
+									 Then, we create a truncate mask $\mathbf{T} \in [0,1]^{\frac{H}{4} \times \frac{W}{4}}$ using the following logic condition:
+									 $$(\mathbf{T})_{ij}=\left[\left((\hat{\mathbf{M}}_L)_{ij} >(\hat{\mathbf{D}}_L)_{ij}\right) \land (\mathbf{C}_M)_{ij} \right] \lor \left[ (\mathbf{C}_M)_{ij} \land \neg(\hat{\mathbf{C}}_L)_{ij} \right]$$
+									 The rationale is that stereo predicts farther depths on mirror surfaces: the mirror is perceived as a window on a new environment, specular to the real one.
+									 Finally, for values of $\mathbf{T}>T_\text{m}=0.98$, we truncate ${\mathbf{V}_S}$ using a sigmoid curve centered at the correlation value predicted by $\hat{\mathbf{M}}_L$ -- i.e., the real disparity of mirror surfaces -- preserving only the stereo correlation curve that does not "pierce" the mirror region.
+								</p>
+								<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+									<tr>
+										<td><img src="assets/vol_truncation.png" width="950px" /></td>
+									</tr>
+								</table>
+								<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+									<tr>
+										<td>
+											<p style="text-align: justify;">
+												<strong>Qualitative Results - Volume Truncation.</strong> While Stereo Anywhere alone cannot entirely restore the surface of the mirror starting from the priors provided by the VFM, applying cost volume truncation allows for predicting a much smoother and consistent surface.
+											</p>
+										</td>
+									</tr>
+								</table>
+							</li>
+						</ol>
+					</li>
+					<li>
+						<p style="text-align: justify;">
+							<strong>Iterative Disparity Estimation.</strong> We aim to estimate a series of refined disparity maps $\{\mathbf{D}^1=\hat{\mathbf{M}}_L, \mathbf{D}^2,\dots\,\mathbf{D}^l,\dots\}$ exploiting the guidance from both stereo and mono branches. 
+							Starting from the <a href="https://github.com/princeton-vl/RAFT-Stereo">Multi-GRU update operator</a> we introduce a second lookup operator that extracts correlation features $\mathbf{G}_M$ from the additional volume $\mathbf{V}^D_M$ -- <b style="color: red;">(7)</b>.
+							The two sets of correlation features from $\mathbf{G}_S$ and $\mathbf{G}_M$ are processed by the same two-layer encoder and concatenated with features derived from the current disparity estimation $\mathbf{D}^l$. This concatenation is further processed by a 2D conv layer, and then by the ConvGRU operator.
+							We inherit the convex upsampling module to upsample final disparity to full resolution.
+						</p>
+					</li>
+				</ol>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<br>
+	<hr>
+
+	<center>
+		<h1>Qualitative Results</h1>
+	</center>
+
+	<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative4.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - KITTI 2012.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The figure above shows qualitative results on the KITTI 2012 dataset. 
+					We can notice how any existing stereo model is unable to properly perceive the presence of transparent surfaces, as in correspondence of the windows on buildings and cars.
+					On the contrary Stereo Anywhere, driven by the priors injected through the VFM, properly predicts the disparity corresponding to the transparent surfaces.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative5.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - KITTI 2015.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The qualitative above shows qualitative results on the KITTI 2015 dataset, showing underexposed and transparent regions. 
+					While existing stereo networks struggle at dealing with both, Stereo Anywhere exposes unprecedented robustness.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative6.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - Middlebury 2014.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The upper figure reports the <i>Vintage</i> scene from Middlebury 2014 dataset. 
+					Stereo Anywhere can properly estimate the disparity for the displays, where existing methods are fooled and predict holes.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative7.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - ETH3D.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The image above shows qualitative results on the ETH3D dataset -- <i>Playground1</i>. 
+					Once again, Stereo Anywhere proves its supremacy at predicting fine details such as branches and poles.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative8.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - Booster.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The upper figure reports a scene from Booster dataset, confirming how Stereo Anywhere can exploit the strong priors provided by the VFM to properly perceive the glass surface on the door, as well as challenging, untextured black surfaces of the TV appearing on the right.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative9.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - LayeredFlow.</strong>  Predictions by state-of-the-art models and Stereo Anywhere.
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					The qualitative above showcases an image from the LayeredFlow dataset, highlighting once again the inability of the state-of-the-art networks to model transparent surfaces as those in the door, conversely to Stereo Anywhere which can properly identify their presence.
+				</p>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td><img src="assets/qualitative10.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 990px;" /></td>
+					</tr>
+				</table>
+				<table align=center width="1000px" style="font-family: 'Noto Sans', sans-serif; font-size: 1.1em ">
+					<tr>
+						<td>
+							<p style="text-align: justify;">
+								<strong>Qualitative Results - MonoTrap. Predictions by state-of-the-art models and Stereo Anywhere.</strong> 
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<p style="text-align: justify;">
+					To conclude, this last figure collects a scene from our novel MonoTrap dataset.
+					In this case, we report predictions by both state-of-the-art monocular and stereo models, as well as by Stereo Anywhere.
+					The perspective illusions fooling monocular methods, unsurprisingly, do not affect stereo networks, which however lack in details.
+					Stereo Anywhere effectively combines the strength of both worlds, while being not affected by any of their weaknesses.
+				</p>				
+			</td>
+		</tr>
+	</table>
+
+
+	<br>
+	<hr>
+
+	<div class="container is-max-desktop content">
+		<center><h1 class="bibtex" style="font-size:32px; font-weight:400;">BibTeX</h1></center>
+		<pre style="background-color: #f5f5f5; color: #4a4a4a; font-size: 1.5em; overflow-x: auto;"><code>@article{bartolomei2024stereo,
+	title={Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail},
+	author={Bartolomei, Luca and Tosi, Fabio and Poggi, Matteo and Mattoccia, Stefano},
+	journal={arXiv preprint},
+	year={2024},
+}</code></pre>
+	</div>
+
+
+	<br>
+	<br>
+	<hr>
+</body>
+
+</html>
